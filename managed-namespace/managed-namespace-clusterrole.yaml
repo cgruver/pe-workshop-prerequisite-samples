@@ -30,13 +30,18 @@ rules:
       - get
       - list
       - create
+      - watch
       - update
       - patch
       - delete
+      - deletecollection
     apiGroups:
-      - ''
+      - 'external-secrets.io'
     resources:
-      - secrets
+      - externalsecrets
+      - secretstores
+      - clustersecretstores
+      - pushsecrets
   - verbs:
       - get
       - list
