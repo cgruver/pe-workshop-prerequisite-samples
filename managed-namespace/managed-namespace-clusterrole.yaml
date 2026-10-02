@@ -1,0 +1,202 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: managed-namespace
+rules:
+  - verbs:
+      - get
+      - create
+    apiGroups:
+      - ''
+    resources:
+      - pods/exec
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - pods/log
+  - verbs:
+      - get
+      - list
+      - create
+    apiGroups:
+      - ''
+    resources:
+      - pods/portforward
+  - verbs:
+      - get
+      - list
+      - create
+      - watch
+      - update
+      - patch
+      - delete
+      - deletecollection
+    apiGroups:
+      - 'external-secrets.io'
+    resources:
+      - externalsecrets
+      - secretstores
+      - clustersecretstores
+      - pushsecrets
+  - verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete
+      - update
+      - patch
+    apiGroups:
+      - ''
+    resources:
+      - persistentvolumeclaims
+  - verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete
+      - update
+      - patch
+    apiGroups:
+      - ''
+    resources:
+      - pods
+  - verbs:
+      - get
+      - list
+      - create
+      - delete
+      - update
+      - patch
+    apiGroups:
+      - ''
+    resources:
+      - services
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - ''
+    resources:
+      - configmaps
+  - verbs:
+      - get
+      - list
+      - watch
+      - create
+      - patch
+      - delete
+    apiGroups:
+      - apps
+    resources:
+      - deployments
+  - verbs:
+      - get
+      - list
+      - patch
+      - delete
+    apiGroups:
+      - apps
+    resources:
+      - replicasets
+  - verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete
+    apiGroups:
+      - networking.k8s.io
+    resources:
+      - ingresses
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - metrics.k8s.io
+    resources:
+      - pods
+      - nodes
+  - verbs:
+      - get
+      - list
+    apiGroups:
+      - ''
+    resources:
+      - namespaces
+  - verbs:
+      - watch
+      - list
+    apiGroups:
+      - ''
+    resources:
+      - events
+  - verbs:
+      - get
+      - list
+      - create
+      - delete
+    apiGroups:
+      - route.openshift.io
+    resources:
+      - routes
+  - verbs:
+      - get
+    apiGroups:
+      - project.openshift.io
+    resources:
+      - projects
+  - verbs:
+      - get
+      - list
+    apiGroups:
+      - image.openshift.io
+    resources:
+      - imagestreams
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - patch
+      - update
+    apiGroups:
+      - batch
+    resources:
+      - cronjobs
+      - jobs
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - batch
+    resources:
+      - cronjobs
+      - cronjobs/status
+      - jobs
+      - jobs/status
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - bindings
+      - limitranges
+      - namespaces/status
+      - pods/log
+      - pods/status
+      - replicationcontrollers/status
+      - resourcequotas
+      - resourcequotas/status
